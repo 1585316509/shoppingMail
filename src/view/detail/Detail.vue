@@ -16,6 +16,18 @@
         </SwiperItem>
       </Swiper>
     </div>
+    <DetaShoppingInfo :shoppingInfo="detailGoods.shoppingInfo"></DetaShoppingInfo>
+    <Columns :columns="detailGoods.columns"></Columns>
+    <Services :services="detailGoods.services"></Services>
+    <ShopInfo :shopInfo="detailGoods.shopInfo"></ShopInfo>
+    <div class="shopIn">
+      <button>进店逛逛</button>
+    </div>
+    <ShopDesc :desc="detailGoods.desc"></ShopDesc>
+    <WearingEffect :wearingEffect="detailGoods.detailInfo"></WearingEffect>
+
+
+
   </div>
 </template>
 
@@ -24,6 +36,16 @@
   import {request} from "@/network/axios";
   import TopBar from '@/components/common/topBar/TopBar'
   import {Swiper,SwiperItem} from '@/components/common/swiper'
+  import DetaShoppingInfo from'./children/DetaShoppingInfo'
+  import Columns from './children/Columns'
+  import Services from './children/Services'
+  import ShopInfo from './children/ShopInfo'
+  import ShopDesc from './children/ShopDesc'
+  import WearingEffect from './children/WearingEffect'
+
+
+
+
 
 
   export default {
@@ -53,7 +75,14 @@
     components:{
       TopBar,
       Swiper,
-      SwiperItem
+      SwiperItem,
+      DetaShoppingInfo,
+      Columns,
+      Services,
+      ShopInfo,
+      ShopDesc,
+      WearingEffect
+
     },
     methods:{
       getDetailData(iid){
@@ -114,5 +143,21 @@
     height: 300px;
     overflow: hidden;
   }
-
+  #detail{
+    margin-bottom: 100px;
+  }
+  .shopIn button{
+    width: 200px;
+    height: 50px;
+    display: block;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #ccc;
+    color: grey;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    margin:20px auto;
+  }
 </style>
